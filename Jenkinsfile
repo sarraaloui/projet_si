@@ -10,19 +10,19 @@ pipeline{
         }
         stage('install'){
             steps{
-                bat "mvn install -f Jenkins-pipeline"
+                bat "mvn install -f Jenkins-pipeline1"
             }
         }
 
         stage('test'){
             steps{
-                bat "mvn test -f Jenkins-pipeline"
+                bat "mvn test -f Jenkins-pipeline1"
             }
 
         }
         stage('package'){
             steps{
-                bat "mvn package -f Jenkins-pipeline"
+                bat "mvn package -f Jenkins-pipeline1"
             }
         }
     }
