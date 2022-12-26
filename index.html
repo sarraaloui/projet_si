@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Page Title</title>
+</head>
+<body>
+<h1>This is a list of restaurants </h1>
+<p id="data">
+</p>
+<script type="text/javascript">
+    fetch('./restaurants.json')
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(restaurants){
+        for(var i=0;i<restaurants.length;i++){
+       
+          document.getElementById("data").innerHTML += 
+          i+")"+"Building :"+restaurants[i].address[0].building +", <br>"+"Coord :"+ restaurants[i].address[0].coord +", <br>" +"Street : "+restaurants[i].address[0].street+",<br>" +"ZipCode : "+ restaurants[i].address[0].zipcode+"  ,<br>"+
+          "Borough :"+restaurants[i].borough+", <br>"+"Cuisine :"+
+          restaurants[i].cuisine+", <br>"+"Grade  :"+  
+          restaurants[i].grades[0].grade+", <br>" +"Score :"+restaurants[i].grades[0].score+",<br>"+"Name :"+
+          restaurants[i].name+"<br>"+"Restaurant_id :"+restaurants[i].restaurant_id+"<br />" ;
+      "<br><br>"
+        }
+    })
+    .catch(function(err){
+        console.log(err);
+    });
+</script>
+
+</body>
+</html>
